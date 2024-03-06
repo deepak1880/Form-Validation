@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:padding="@dimen/dimen_16dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/educationSectionTextView"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/educational_info_section_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Education starts -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/educationTextView"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:text="@string/education_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/educationSectionTextView" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/educationInputLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/qualification_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/educationTextView">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/educationEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="none"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Education ends -->
+
+        <!-- YoP starts -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/yearPassingTextView"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:text="@string/year_of_passing_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/educationInputLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/yearPassingInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/year_of_passing_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/yearPassingTextView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/yearOfPassingEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="4"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- YoP ends -->
+
+
+        <!-- University starts -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/universityTextView"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:text="@string/university_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/yearPassingInputLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/universityInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/university_name_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/universityTextView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/universityEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- University ends -->
+
+
+        <!-- Grade starts -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/gradeTextView"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:text="@string/grade_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/universityInputLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/gradeInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/grade_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gradeTextView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/gradeEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Grade ends -->
+
+        <!-- Horizontal divider starts -->
+
+        <View
+            android:id="@+id/horizontalLine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:background="#c0c0c0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gradeInputLayout" />
+
+        <!-- Horizontal divider ends -->
+
+        <!-- Professional section starts -->
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/professionalSectionTextView"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:text="@string/professional_info_section_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horizontalLine" />
+
+        <!-- Professional section ends -->
+
+        <!-- Experience starts -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/experienceTextView"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:text="@string/experience_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/professionalSectionTextView" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/experienceInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/experience_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/experienceTextView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/experienceEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="2"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Experience ends -->
+
+        <!-- Designation starts -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/designationTextView"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:text="@string/designation_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/experienceInputLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/designationInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/designation_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/designationTextView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/designationEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Designation ends -->
+
+        <!-- Domain starts -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/domainTextView"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:text="@string/domain_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/designationInputLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/domainInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/domain_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/domainTextView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/domainEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Domain ends -->
+
+
+        <!-- Previous Button starts -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/previousButton"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            android:text="@string/previous_button"
+            app:cornerRadius="@dimen/dimen_0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/nextButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/domainInputLayout" />
+        <!-- Previous Button ends -->
+
+        <!-- Next Button starts -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            android:text="@string/next_button"
+            app:cornerRadius="@dimen/dimen_0dp"
+            app:layout_constraintBottom_toBottomOf="@id/previousButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/previousButton"
+            app:layout_constraintTop_toTopOf="@id/previousButton" />
+        <!-- Next Button ends -->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
