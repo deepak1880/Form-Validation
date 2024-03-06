@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_8dp"
-        android:text="@string/camera_button"
+        android:text="@string/gallery_button"
         app:icon="@drawable/round_image_search_24"
         app:layout_constraintBottom_toBottomOf="@id/cameraButton"
         app:layout_constraintEnd_toEndOf="parent"

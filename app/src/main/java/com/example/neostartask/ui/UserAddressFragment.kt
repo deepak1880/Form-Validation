@@ -67,13 +67,15 @@ class UserAddressFragment : Fragment(R.layout.fragment_user_address) {
     private fun validateUserInputs() {
 
         with(binding) {
+
+            var isInputsValid = true
             val addressValidation = viewModel.validateAddress(addressEditText.text.toString())
 
             if (addressValidation.first) {
                 addressInputLayout.error = null
             } else {
                 addressInputLayout.error = addressValidation.second
-                return
+                isInputsValid = false
             }
 
             val landmarkValidation = viewModel.validateLandmark(landmarkEditText.text.toString())
@@ -82,7 +84,8 @@ class UserAddressFragment : Fragment(R.layout.fragment_user_address) {
                 landmarkInputLayout.error = null
             } else {
                 landmarkInputLayout.error = landmarkValidation.second
-                return
+
+                isInputsValid = false
             }
 
 //            val cityValidation = viewModel.validateCity(cityEditText.text.toString())
@@ -100,7 +103,8 @@ class UserAddressFragment : Fragment(R.layout.fragment_user_address) {
                 stateInputLayout.error = null
             } else {
                 stateInputLayout.error = stateValidation.second
-                return
+
+                isInputsValid = false
             }
 
 //            val pinCodeValidation = viewModel.validatePinCode(pinCodeEditText.text.toString())
@@ -111,8 +115,9 @@ class UserAddressFragment : Fragment(R.layout.fragment_user_address) {
 //                pinCodeInputLayout.error = pinCodeValidation.second
 //                return
 //            }
-
-            saveUserInfo()
+            if (isInputsValid) {
+                saveUserInfo()
+            }
         }
     }
 

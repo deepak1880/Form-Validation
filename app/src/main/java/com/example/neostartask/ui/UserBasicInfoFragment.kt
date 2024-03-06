@@ -52,10 +52,10 @@ class UserBasicInfoFragment : Fragment(R.layout.fragment_user_personal_info) {
         }
 
     private fun takeImageUsingCamera() {
-        val file = File(requireContext().filesDir, "userProfile")
+        val file = File(requireContext().filesDir, "userProfile_${System.currentTimeMillis()}")
         val uri = FileProvider.getUriForFile(
             requireContext(),
-            requireActivity().packageName + ".provider",
+             requireContext().applicationContext.packageName+".provider",
             file
         )
         launchCameraIntent.launch(uri)
@@ -164,13 +164,14 @@ class UserBasicInfoFragment : Fragment(R.layout.fragment_user_personal_info) {
 
     private fun validateUserInputs() {
         with(binding) {
-
+            var isInputsValid = true
             if (viewModel.profileImageUri == null) {
                 Toast.makeText(
                     requireContext(), "Please select a profile image", Toast.LENGTH_SHORT
                 ).show()
 
-                return
+
+                isInputsValid = false
             }
 
             val firstNameValidation = viewModel.validateFirstName(firstNameEditText.text.toString())
@@ -179,7 +180,8 @@ class UserBasicInfoFragment : Fragment(R.layout.fragment_user_personal_info) {
                 firstNameInputLayout.error = null
             } else {
                 firstNameInputLayout.error = firstNameValidation.second
-                return
+
+                isInputsValid = false
             }
 
             val lastNameValidation = viewModel.validateLastName(lastNameEditText.text.toString())
@@ -188,7 +190,8 @@ class UserBasicInfoFragment : Fragment(R.layout.fragment_user_personal_info) {
                 lastNameInputLayout.error = null
             } else {
                 lastNameInputLayout.error = lastNameValidation.second
-                return
+
+                isInputsValid = false
             }
 
 
@@ -199,7 +202,8 @@ class UserBasicInfoFragment : Fragment(R.layout.fragment_user_personal_info) {
                 phoneNumberInputLayout.error = null
             } else {
                 phoneNumberInputLayout.error = phoneNumberValidation.second
-                return
+
+                isInputsValid = false
             }
 
 
@@ -209,7 +213,8 @@ class UserBasicInfoFragment : Fragment(R.layout.fragment_user_personal_info) {
                 emailInputLayout.error = null
             } else {
                 emailInputLayout.error = emailValidation.second
-                return
+
+                isInputsValid = false
             }
 
 
@@ -219,7 +224,8 @@ class UserBasicInfoFragment : Fragment(R.layout.fragment_user_personal_info) {
                 passwordInputLayout.error = null
             } else {
                 passwordInputLayout.error = passwordValidation.second
-                return
+
+                isInputsValid = false
             }
 
 
@@ -231,10 +237,12 @@ class UserBasicInfoFragment : Fragment(R.layout.fragment_user_personal_info) {
                 confirmPasswordInputLayout.error = null
             } else {
                 confirmPasswordInputLayout.error = confirmPasswordValidation.second
-                return
-            }
 
-            saveUserBasicDetails()
+                isInputsValid = false
+            }
+            if (isInputsValid) {
+                saveUserBasicDetails()
+            }
         }
     }
 

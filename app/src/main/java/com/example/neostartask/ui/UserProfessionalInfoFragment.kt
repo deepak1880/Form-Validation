@@ -66,7 +66,7 @@ class UserProfessionalInfoFragment : Fragment(R.layout.fragment_user_professiona
 
     private fun validateUserInput() {
         with(binding) {
-
+            var isInputsValid = true
             /* Qualification validation */
             val qualificationValidation = viewModel.validateQualification(
                 educationEditText.text.toString()
@@ -76,7 +76,7 @@ class UserProfessionalInfoFragment : Fragment(R.layout.fragment_user_professiona
                 educationInputLayout.error = null
             } else {
                 educationInputLayout.error = qualificationValidation.second
-                return
+                isInputsValid = false
             }
 
             /* Year of Passing validation */
@@ -88,7 +88,8 @@ class UserProfessionalInfoFragment : Fragment(R.layout.fragment_user_professiona
                 yearPassingInputLayout.error = null
             } else {
                 yearPassingInputLayout.error = yearOfPassingValidation.second
-                return
+
+                isInputsValid = false
             }
 
             /*val universityValidation = viewModel.validateUniversity(
@@ -146,7 +147,9 @@ class UserProfessionalInfoFragment : Fragment(R.layout.fragment_user_professiona
                 return
             }*/
 
-            saveUserInfo()
+            if (isInputsValid) {
+                saveUserInfo()
+            }
         }
     }
 
@@ -161,8 +164,13 @@ class UserProfessionalInfoFragment : Fragment(R.layout.fragment_user_professiona
                 grade = gradeEditText.text.toString()
             )
 
+            val experienceYears = if (experienceEditText.text.toString().isEmpty()) {
+                -1
+            } else {
+                experienceEditText.text.toString().toInt()
+            }
             val professionalInfo = ProfessionalInfo(
-                experience = experienceEditText.text.toString().toInt(),
+                experience =experienceYears,
                 designation = designationEditText.text.toString(),
                 domain = domainEditText.text.toString()
             )

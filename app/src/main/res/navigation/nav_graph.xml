@@ -40,7 +40,7 @@
         <action
             android:id="@+id/toRegistrationSuccessFragment"
             app:destination="@id/registrationSuccessFragment"
-            app:popUpTo="@layout/fragment_user_personal_info"
+            app:popUpTo="@id/userPersonalInfoFragment"
             app:popUpToInclusive="true" />
 
         <argument
